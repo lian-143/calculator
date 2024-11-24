@@ -1,5 +1,7 @@
 # Calculator
 
+Try the live version of the calculator here: **[Live Calculator](https://lian-143.github.io/calculator/)**
+
 # Basic Calculator Project
 
 This is a basic on-screen calculator built with **JavaScript**, **HTML**, and **CSS**. It implements fundamental arithmetic operations and includes essential calculator functionalities. This project is part of The Odin Project's Foundations Course, combining everything learned so far.
