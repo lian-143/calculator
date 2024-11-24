@@ -25,7 +25,6 @@ body {
 }
 
 .display-container {
-  /* border: solid 1px red; */
   height: 50px;
   display: flex;
   align-items: flex-end;
@@ -35,7 +34,6 @@ body {
 #display-value {
   font-size: 1.75em;
   color: #fff;
-  /* border: solid 1px rgb(0, 195, 255); */
 }
 
 .row {

@@ -1,6 +1,11 @@
 const addition = document.getElementById("addition");
 const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
+
+const clearBtn = document.getElementById("clear");
+const deleteBtn = document.getElementById("delete");
+const dotBtn = document.getElementById("dot");
+
 let displayValue = document.getElementById("display-value");
 
 let firstValue = "";
@@ -10,7 +15,7 @@ let operatorValue = "";
 function performOperation(firstValue, secondValue, operator) {
   let num1 = parseFloat(firstValue);
   let num2 = parseFloat(secondValue);
-  //     // Create a new function operate that takes an operator and two numbers and then calls one of the above functions on the numbers.
+  // Create a new function operate that takes an operator and two numbers and then calls one of the above functions on the numbers.
   if (operator === "+") {
     let sum = num1 + num2;
     return sum;
@@ -23,20 +28,23 @@ function performOperation(firstValue, secondValue, operator) {
   } else if (operator === "/") {
     let divide = num1 / num2;
     return divide;
+  } else if (operator === "%") {
+    let percentage = num1 % num2;
+    return percentage;
   }
 }
 
 numbers.forEach((number) => {
   number.addEventListener("click", (event) => {
     let inputText = event.target.innerText;
-    // read first number
+    // read first and second number
     if (operatorValue === "") {
       firstValue += inputText;
-      displayValue.innerText = firstValue;
     } else {
       secondValue += inputText;
-      displayValue.innerText = `${firstValue} ${operatorValue} ${secondValue}`;
     }
+
+    displayValue.innerText = `${firstValue} ${operatorValue} ${secondValue}`;
   });
 });
 
@@ -62,4 +70,20 @@ operators.forEach((operator) => {
       displayValue.innerText = `${firstValue} ${inputText}`;
     }
   });
+});
+
+clearBtn.addEventListener("click", () => {
+  firstValue = "";
+  secondValue = "";
+  operatorValue = "";
+  displayValue.innerText = "";
+});
+
+deleteBtn.addEventListener("click", () => {
+  if (operatorValue === "") {
+    firstValue = firstValue.slice(0, -1);
+  } else if (secondValue) {
+    secondValue = secondValue.slice(0, -1);
+  }
+  displayValue.innerText = `${firstValue} ${operatorValue} ${secondValue}`;
 });
